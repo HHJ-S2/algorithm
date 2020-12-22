@@ -1,1 +1,3 @@
-# algorithm
+## Algorithm
+- JavaScript
+  - Kode Kata
