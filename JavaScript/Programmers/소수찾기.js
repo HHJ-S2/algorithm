@@ -1,22 +1,28 @@
 /*
+  에라토스테네스의 체를 활용하여 소수 찾기
   효율성 0점 
 */
+
 function solution(n) {
   let numbers = [];
   
-  for (let i=1; i <= n; i++){ numbers.push(i) }
+  // 0 ~ n 까지의 수를 배열에 push 한다.
+  for (let i=1; i <= n; i++) numbers.push(i)
   
+  // 이중 for문을 사용
   for (let j=1; j < numbers.length; j++){
     for (let k=1; k <= numbers.length; k++){
+      // numbers에 1 * (1 + 1) !== -1
+      // 즉, 4, 6, 8 ... 소수가 아닌 값이 배열에 있을경우
       if (numbers.indexOf(numbers[j] * (k + 1)) !== -1){
+        // splice를 사용하여 배열에서 삭제 -> 이 로직이 효율성을 엄청 떨어뜨리는듯...
         numbers.splice(numbers.indexOf(numbers[j] * (k + 1)), 1);
       }
     }
   }
   
-  let answer = numbers.filter(val => val !== 1);
-  
-  return answer.length;
+  numbers.shift();
+  return numbers.length;
 }
 
 /* 
