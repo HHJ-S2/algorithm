@@ -47,7 +47,7 @@ function solution(n) {
       if(i == j + 1) result++;
     }
   }
-  return result+1; //n이 1이상의 정수라는 가정하에
+  return result+1; // n이 1이상의 정수라는 가정하에
 }
 
 
